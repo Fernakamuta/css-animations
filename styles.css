@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+body {
+  background-color: lightblue;
+  font-family: 'Poppins', sans-serif;
+}
+
+.wrapper img {
+  border: 1px solid blue;
+  transition: 1s;
+}
+
+.hellomoon {
+  display: inline-block;
+  z-index: 1;
+  transition: 1s;
+}
+
+/* img:hover { */
+  /* transform: rotateZ(360deg); */
+  /* } */
+  
+  img:hover ~ .hellomoon {
+    color: red;
+    border: 1px solid #aa1308;
+   transform: rotate(180); 
+}
