@@ -1,26 +1,92 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
-body {
-  background-color: lightblue;
-  font-family: 'Poppins', sans-serif;
+/*// BASE STYLES //*/
+
+html, body{
+  height: 100%;
+  width:100%;
+  overflow: hidden;
+  margin: 0;
 }
 
-.wrapper img {
-  border: 1px solid blue;
-  transition: 1s;
+.grass, .sky, .road{
+  position: relative;
 }
 
-.hellomoon {
-  display: inline-block;
-  z-index: 1;
-  transition: 1s;
+.sky{
+  height: 40%;
+  background: skyblue;
 }
 
-/* img:hover { */
-  /* transform: rotateZ(360deg); */
-  /* } */
-  
-  img:hover ~ .hellomoon {
-    color: red;
-    border: 1px solid #aa1308;
-   transform: rotate(180); 
+.grass{
+  height: 30%;
+  background: seagreen;
+}
+
+.road{
+  height: 30%;
+  background: dimgrey;
+  box-sizing: border-box;
+  border-top: 10px solid grey;
+  border-bottom: 10px solid grey;
+  width: 100%;
+}
+
+.lines{
+  box-sizing: border-box;
+  border: 5px dashed #fff;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+}
+
+.mario {
+  position: absolute;
+  top: 75px;
+  animation: move 2s infinite alternate-reverse,
+             jump 1s ease infinite
+}
+
+.luigi {
+  position: absolute;
+  top: -75px;
+  animation: move 2s linear infinite alternate-reverse backwards,
+             jump 1s infinite;
+
+}
+
+.cloud {
+  position: absolute;
+}
+
+.cloud:nth-child(1) {
+  top: 120px;
+  width: 200px;
+  opacity: 0.5;
+  animation: wind 60s linear infinite reverse;
+}
+
+.cloud:nth-child(2) {
+  width: 300px;
+  animation: wind 60s linear infinite alternate;
+}
+/*// ELEMENTS TO ANIMATE //*/
+
+
+
+/*// KEYFRAMES //*/
+
+@keyframes move {
+    from { transform: translateX(-500px) }
+    to { transform: translateX(2000px) }
+}
+
+@keyframes wind {
+  from { left: -300px }
+  to { left: 100% }
+}
+
+@keyframes jump {
+  0% { top: -75px }
+  50% { top: -200px }
+  100% { top: -75px }
 }
